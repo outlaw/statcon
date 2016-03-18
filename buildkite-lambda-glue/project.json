@@ -1,0 +1,9 @@
+
+{
+  "name": "buildkite-lambda-glue",
+  "description": "Glue for github events to trigger buildkite builds",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::549119245188:role/lambda_basic_execution",
+  "environment": {}
+}
