@@ -1,6 +1,6 @@
 /*
 Error: File to import not found or unreadable: bourbon.
-        on line 3 of /var/folders/9h/_6jlx37d1flfdfdf0z1v50r80000gn/T/mm_root20160401-33492-hdwe4j/mm_root/source/stylesheets/site.css.scss
+        on line 3 of /var/folders/9h/_6jlx37d1flfdfdf0z1v50r80000gn/T/mm_root20160401-40682-3rlazo/mm_root/source/stylesheets/site.css.scss
 
 1: @charset "utf-8";
 2: @import "normalize";
@@ -12,7 +12,7 @@ Error: File to import not found or unreadable: bourbon.
 8: // http://paletton.com/#uid=51l1n0krctGcnORkqzSusloH5aG
 
 Backtrace:
-/var/folders/9h/_6jlx37d1flfdfdf0z1v50r80000gn/T/mm_root20160401-33492-hdwe4j/mm_root/source/stylesheets/site.css.scss:3
+/var/folders/9h/_6jlx37d1flfdfdf0z1v50r80000gn/T/mm_root20160401-40682-3rlazo/mm_root/source/stylesheets/site.css.scss:3
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:67:in `rescue in import'
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:45:in `import'
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -96,19 +96,19 @@ Backtrace:
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/contracts-0.13.0/lib/contracts/method_reference.rb:43:in `send_to'
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/contracts-0.13.0/lib/contracts/call_with.rb:76:in `call_with'
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/contracts-0.13.0/lib/contracts/method_handler.rb:138:in `block in redefine_method'
-/Users/jacob/work/hooroo-status/statcon/lib/statcon.rb:51:in `build_middleman'
-/Users/jacob/work/hooroo-status/statcon/lib/statcon.rb:33:in `block in build'
+/Users/jacob/work/statcon/lib/statcon.rb:51:in `build_middleman'
+/Users/jacob/work/statcon/lib/statcon.rb:33:in `block in build'
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/2.2.0/tmpdir.rb:88:in `mktmpdir'
-/Users/jacob/work/hooroo-status/statcon/lib/statcon.rb:18:in `build'
+/Users/jacob/work/statcon/lib/statcon.rb:18:in `build'
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
-/Users/jacob/work/hooroo-status/statcon/exe/statcon:4:in `<top (required)>'
+/Users/jacob/work/statcon/exe/statcon:4:in `<top (required)>'
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bin/statcon:23:in `load'
 /Users/jacob/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bin/statcon:23:in `<main>'
 */
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: bourbon.\A         on line 3 of /var/folders/9h/_6jlx37d1flfdfdf0z1v50r80000gn/T/mm_root20160401-33492-hdwe4j/mm_root/source/stylesheets/site.css.scss\A \A 1: @charset \"utf-8\";\A 2: @import \"normalize\";\A 3: @import 'bourbon';\A 4: @import 'neat';\A 5: @import \"font-awesome\";\A 6: \A 7: // Pulled from:\A 8: // http://paletton.com/#uid=51l1n0krctGcnORkqzSusloH5aG"; }
+  content: "Error: File to import not found or unreadable: bourbon.\A         on line 3 of /var/folders/9h/_6jlx37d1flfdfdf0z1v50r80000gn/T/mm_root20160401-40682-3rlazo/mm_root/source/stylesheets/site.css.scss\A \A 1: @charset \"utf-8\";\A 2: @import \"normalize\";\A 3: @import 'bourbon';\A 4: @import 'neat';\A 5: @import \"font-awesome\";\A 6: \A 7: // Pulled from:\A 8: // http://paletton.com/#uid=51l1n0krctGcnORkqzSusloH5aG"; }
