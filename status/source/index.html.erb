@@ -1,0 +1,55 @@
+---
+title: Major Outage | Hooroo Status
+---
+
+<div class="content">
+  <header>
+    <div class="logo">
+      <%= partial 'shared/logo' %>
+    </div>
+    <div class="status">
+      Major Outage
+    </div>
+    <div class="eta">
+      ETA Unknown
+    </div>
+  </header>
+
+  <div class="services">
+    <div class="current">
+      <%- data.apps.each do |app| -%>
+        <div class="current__service--<%= statcon_in_words(statcon(app.id)) %>">
+          <span class="current__service__name"><%= app.name %></span>
+        </div>
+      <%- end -%>
+    </div>
+
+    <div class="history">
+      <%- data.apps.each do |app| -%>
+        <div class="historic__service">
+          <div class="historic__service__state">
+            <i class="fa fa-check-circle"></i>
+          </div>
+
+          <div class="historic__service__name">
+            <%= app.name %>
+            <br />
+            100.0000% uptime
+          </div>
+
+          <div class="historic__service__history">
+            <div class="historic__service__history__wrapper">
+              <%- history(app.id).each do |day| -%>
+                <span class="historic__service__history__chit--<%= statcon_in_words(day[:statcon]) %>">&nbsp;</span>
+              <%- end -%>
+            </div>
+          </div>
+        </div>
+      <%- end -%>
+    </div>
+  </div>
+
+  <footer>
+    Don't worry, be happy.
+  </footer>
+</div>
