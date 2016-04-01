@@ -2,16 +2,16 @@
 title: Major Outage | Hooroo Status
 ---
 
-<div class="content">
+<div class="content--<%= statcon_in_words(system_statcon) %>">
   <header>
     <div class="logo">
       <%= partial 'shared/logo' %>
     </div>
     <div class="status">
-      Major Outage
+      <%= system_status %>
     </div>
     <div class="eta">
-      ETA Unknown
+      &nbsp;
     </div>
   </header>
 

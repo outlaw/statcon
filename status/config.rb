@@ -58,6 +58,20 @@ helpers do
       }
     end
   end
+
+  def system_statcon
+    data.apps.any? do |app|
+      statcon(app.id) == 1
+    end ? 1 : 3
+  end
+
+  def current_outage?
+    system_statcon == 1
+  end
+
+  def system_status
+    current_outage? ? "Major Outage" : "All Systems Nominal"
+  end
 end
 
 # Build-specific configuration
