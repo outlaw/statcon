@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-#curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
-##wget https://github.com/outlaw/roo/releases/download/0.0.0-alpha/roo-linux-x86_64.tar.gz
-##tar xvf roo-linux-x86_64.tar.gz
-#wget https://github.com/outlaw/roo/releases/download/0.0.0-alpha/roo-darwin-x86_64.tar.gz
-#tar xvf roo-darwin-x86_64.tar.gz
+if [ ! -e roo ]
+then
+  wget https://github.com/outlaw/roo/releases/download/0.0.0-alpha/roo-linux-x86_64.tar.gz
+  tar xvf roo-linux-x86_64.tar.gz
+#  wget https://github.com/outlaw/roo/releases/download/0.0.0-alpha/roo-darwin-x86_64.tar.gz
+#  tar xvf roo-darwin-x86_64.tar.gz
+fi
 
 export AWS_PROFILE=nonprod
 export AWS_REGION=ap-southeast-2
