@@ -1,11 +1,11 @@
 require 'octokit'
 require 'yaml'
-require 'dotenv'
+# require 'dotenv'
 require 'pry'
 
 namespace :issues do
   desc 'Updates local data from GitHub issues'
-  task :update => :dotenv do
+  task :update do
     puts "Updating issues data from GitHub"
     token  = ENV['GITHUB_TOKEN']
     repos  = ['hooroo/hooroo-status']

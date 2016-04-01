@@ -3,4 +3,20 @@
     @include span-columns(3);
     @include omega(2n);
   }
+
+  %content-header {
+    > .logo {
+      @include span-columns(2);
+    }
+
+    > .status {
+      @include span-columns(4);
+      @include omega;
+      text-align: right;
+    }
+
+    > .eta {
+      display: none;
+    }
+  }
 }
