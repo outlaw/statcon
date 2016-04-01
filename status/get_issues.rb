@@ -3,6 +3,8 @@ require 'yaml'
 require 'dotenv'
 require 'pry'
 
+Dotenv.load
+
 token  = ENV['GITHUB_TOKEN']
 repos  = ['hooroo/hooroo-status']
 client = Octokit::Client.new(access_token: token)
