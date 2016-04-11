@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require "statcon"
+Statcon::App.start

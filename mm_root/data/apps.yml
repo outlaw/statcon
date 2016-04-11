@@ -1,0 +1,31 @@
+- id: 'availability_search'
+  name: "Availability Search"
+  statcon: 3
+
+- id: 'booking_manager'
+  name: "Booking Manager"
+  statcon: 3
+
+- id: 'booking_manager_api'
+  name: "Booking Manager API"
+  statcon: 3
+
+- id: 'bookings'
+  name: "Bookings"
+  statcon: 3
+
+- id: 'flightbookings'
+  name: "Flightbookings"
+  statcon: 3
+
+- id: 'hotels'
+  name: "Hotels"
+  statcon: 3
+
+- id: 'jetstar_homepage'
+  name: "Jetstar Homepage"
+  statcon: 3
+
+- id: 'reservations'
+  name: "Reservations"
+  statcon: 3

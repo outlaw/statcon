@@ -1,0 +1,14 @@
+@include media(max-width $mobile-max-width, 3) {
+  %current__service{
+    @include span-columns(3);
+    @include omega(2n);
+  }
+
+  .current{
+    margin-bottom: 0 !important;
+  }
+
+  .history{
+    display: none;
+  }
+}

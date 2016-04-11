@@ -1,0 +1,6 @@
+@include media(min-width $tablet-min-width max-width $tablet-max-width, 6) {
+  %current__service{
+    @include span-columns(3);
+    @include omega(2n);
+  }
+}
