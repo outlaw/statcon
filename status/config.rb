@@ -28,29 +28,22 @@ helpers do
     ['fail', 'warning', 'healthy'][statcon-1]
   end
 
-  def app_events(app_id)
+  def event_is_on_day?(event:, date:)
+    created_at = event.created_at.at_midnight
+    closed_at = event.closed_at || Time.now.at_end_of_day
+    date >= created_at && date <= closed_at
+  end
+
+  def app_events(app_id, date: nil)
     data.events.select do |event|
-      event.apps.include?(app_id)
+      event.apps.include?(app_id) &&
+      (date.nil? || event_is_on_day?(event: event, date: date))
     end
   end
 
   def history(app_id, days: 90)
-    events = app_events(app_id)
     days.times.map do |day|
-      start_time = (day.days.ago).at_midnight
-      end_time = (day.days.ago).at_end_of_day
-
-      day_events = events.select do |event|
-        created_at = event.created_at
-        closed_at = event.closed_at.present? && event.closed_at
-
-        if closed_at
-          (created_at >= start_time && created_at <= end_time) ||
-          (event.closed_at >= start_time && event.closed_at <= end_time)
-        else
-          start_time >= created_at
-        end
-      end
+      day_events = app_events(app_id, date: day.days.ago)
       {
         date: Time.now.at_midnight,
         events: day_events,

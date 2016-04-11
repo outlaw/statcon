@@ -1,4 +1,14 @@
 @include media(min-width $tablet-min-width max-width $tablet-max-width, 6) {
+  body{
+    padding: 0;
+  }
+
+  %content{
+    @include span-columns(6);
+    @include shift(0);
+    margin-bottom: 0;
+  }
+
   %current__service{
     @include span-columns(3);
     @include omega(2n);
