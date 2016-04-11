@@ -1,16 +1,14 @@
 @charset "utf-8";
 @import "normalize";
-@import 'bourbon/bourbon';
-@import 'neat/neat';
-@import 'font-awesome/font-awesome';
+@import 'bourbon';
+@import 'neat';
+@import "font-awesome";
 
 // Pulled from:
 // http://paletton.com/#uid=51l1n0krctGcnORkqzSusloH5aG
 $color-warning: #EDC523;
 $color-healthy: #4DCA1E;
 $color-fail: #E8232D;
-
-$current-border-color: $color-fail;
 
 body {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -198,21 +196,22 @@ body {
 }
 
 .historic__service__name {
-  @include span-columns(3);
+  @include span-columns(3.5);
   font-weight: 500;
 }
 
 .historic__service__history {
   @include span-columns(8.5);
+  overflow: hidden;
 }
 
 .historic__service__history__wrapper{
   float: right;
+  height: 16px;
 }
 
 %historic__service__history__chit{
-  background: $color-healthy;
-  width: 6px;
+  width: 5px;
   height: 16px;
   display: inline-block;
   float: left;
@@ -241,8 +240,18 @@ body {
 
 // Responsive
 
-$tablet-max-width: 960px;
+$small-desktop-max-width: 1280px;
+$small-desktop-min-width: 1024px;
+$tablet-max-width: $small-desktop-min-width - 1px;
 $tablet-min-width: 768px;
 $mobile-max-width: $tablet-min-width - 1px;
+
+@include media(min-width $small-desktop-min-width max-width $small-desktop-max-width, 12) {
+  %content{
+    @include span-columns(10);
+    @include shift(1);
+  }
+}
+
 @import 'tablet';
 @import 'mobile'

@@ -1,4 +1,7 @@
 require 'active_support/all'
+require 'bourbon'
+require 'neat'
+require 'font-awesome-sass'
 ###
 # Page options, layouts, aliases and proxies
 ###
@@ -19,6 +22,8 @@ page '/*.txt', layout: false
 
 # General configuration
 
+STATUSES = ['Major Outage', 'Degredated Performance', 'All Systems Nominal']
+
 helpers do
   def statcon(app_id)
     app_events(app_id).select{ |event| event.closed_at.nil? }.any? ? 1 : 3
@@ -28,29 +33,22 @@ helpers do
     ['fail', 'warning', 'healthy'][statcon-1]
   end
 
-  def app_events(app_id)
+  def event_is_on_day?(event:, date:)
+    created_at = event.created_at.at_midnight
+    closed_at = event.closed_at || Time.now.at_end_of_day
+    date >= created_at && date <= closed_at
+  end
+
+  def app_events(app_id, date: nil)
     data.events.select do |event|
-      event.apps.include?(app_id)
+      event.apps.include?(app_id) &&
+      (date.nil? || event_is_on_day?(event: event, date: date))
     end
   end
 
   def history(app_id, days: 90)
-    events = app_events(app_id)
     days.times.map do |day|
-      start_time = (day.days.ago).at_midnight
-      end_time = (day.days.ago).at_end_of_day
-
-      day_events = events.select do |event|
-        created_at = event.created_at
-        closed_at = event.closed_at.present? && event.closed_at
-
-        if closed_at
-          (created_at >= start_time && created_at <= end_time) ||
-          (event.closed_at >= start_time && event.closed_at <= end_time)
-        else
-          start_time >= created_at
-        end
-      end
+      day_events = app_events(app_id, date: day.days.ago)
       {
         date: Time.now.at_midnight,
         events: day_events,
@@ -66,11 +64,11 @@ helpers do
   end
 
   def current_outage?
-    system_statcon == 1
+    system_statcon != 3
   end
 
   def system_status
-    current_outage? ? "Major Outage" : "All Systems Nominal"
+    STATUSES[system_statcon - 1]
   end
 end
 

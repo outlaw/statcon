@@ -27,14 +27,8 @@ title: Major Outage | Hooroo Status
     <div class="history">
       <%- data.apps.each do |app| -%>
         <div class="historic__service">
-          <div class="historic__service__state">
-            <i class="fa fa-check-circle"></i>
-          </div>
-
           <div class="historic__service__name">
             <%= app.name %>
-            <br />
-            100.0000% uptime
           </div>
 
           <div class="historic__service__history">
