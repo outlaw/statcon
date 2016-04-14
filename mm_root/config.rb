@@ -57,6 +57,13 @@ helpers do
     end
   end
 
+  def downtime(app_id, days: 90)
+    app_events(app_id).map do |event|
+      event = event.closed_at.nil? || event.closed_at >= days.days.ago
+      
+    end
+  end
+
   def system_statcon
     data.apps.any? do |app|
       statcon(app.id) == 1
