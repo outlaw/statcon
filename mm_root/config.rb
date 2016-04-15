@@ -23,6 +23,10 @@ page '/*.txt', layout: false
 # General configuration
 
 STATUSES = ['Major Outage', 'Degredated Performance', 'All Systems Nominal']
+NICE_THINGS = [
+  "Don't worry, be happy.",
+  "Yesterday is not ours to recover, but tomorrow is ours to win or lose."
+]
 
 helpers do
   def statcon(app_id)
@@ -50,7 +54,7 @@ helpers do
     days.times.map do |day|
       day_events = app_events(app_id, date: day.days.ago)
       {
-        date: Time.now.at_midnight,
+        date: day.days.ago.at_midnight,
         events: day_events,
         statcon: day_events.any? ? 1 : 3
       }
@@ -58,10 +62,18 @@ helpers do
   end
 
   def downtime(app_id, days: 90)
-    app_events(app_id).map do |event|
-      event = event.closed_at.nil? || event.closed_at >= days.days.ago
-      
-    end
+    events = app_events(app_id).select { |e| e.created_at >= 90.days.ago.at_midnight || e.closed_at >= 90.days.ago.at_midnight }
+    events.map do |event|
+      created_at = event.created_at.at_midnight
+      closed_at = event.closed_at || Time.now.at_end_of_day
+      closed_at.to_i - created_at.to_i
+    end.compact.reduce(0, :+)
+  end
+
+  def uptime_percentage(app_id, days: 90)
+    down = (downtime(app_id)).to_f
+    total = (days * 24 * 60 * 60).to_f
+    (total - down) / total
   end
 
   def system_statcon
@@ -76,6 +88,10 @@ helpers do
 
   def system_status
     STATUSES[system_statcon - 1]
+  end
+
+  def nice_thing
+    NICE_THINGS.sample
   end
 end
 

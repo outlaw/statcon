@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    statcon (0.1.0)
+    statcon (0.1.1)
       bourbon
       font-awesome-sass
       middleman

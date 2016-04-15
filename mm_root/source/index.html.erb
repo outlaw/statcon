@@ -28,13 +28,16 @@ title: Major Outage | Hooroo Status
       <%- data.apps.each do |app| -%>
         <div class="historic__service">
           <div class="historic__service__name">
-            <%= app.name %>
+            <h4><%= app.name %></h4>
+            <small>
+              90 day uptime: <%= '%.2f' % (uptime_percentage(app.id) * 100.0)%>%
+            </small>
           </div>
 
           <div class="historic__service__history">
             <div class="historic__service__history__wrapper">
               <%- history(app.id).each do |day| -%>
-                <span class="historic__service__history__chit--<%= statcon_in_words(day[:statcon]) %>">&nbsp;</span>
+                <span title="<%= day[:date].strftime('%d/%m/%Y') %>: <%= pluralize day[:events].count, 'event' %>" class="historic__service__history__chit--<%= statcon_in_words(day[:statcon]) %>">&nbsp;</span>
               <%- end -%>
             </div>
           </div>
